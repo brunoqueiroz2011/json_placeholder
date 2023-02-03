@@ -36,7 +36,7 @@ class HeaderHome extends StatelessWidget {
                   .headline5!
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            Spacer(),
+            const Spacer(),
             Image.asset("assets/icons/icon-json(xxhdpi).png")
           ],
         ),

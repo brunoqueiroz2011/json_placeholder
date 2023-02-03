@@ -9,7 +9,7 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: HomePage(),
+      body: const HomePage(),
     );
   }
 

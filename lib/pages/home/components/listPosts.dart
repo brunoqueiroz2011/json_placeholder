@@ -27,9 +27,9 @@ class _ListPostsState extends State<ListPosts> {
           case ConnectionState.active:
           case ConnectionState.done:
             if (snapshot.hasError) {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text("Houve algum error na requisição")));
-              return Text("Houve algum error na requisição");
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Houve algum error na requisição")));
+              return const Text("Houve algum error na requisição");
             } else {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
@@ -39,9 +39,8 @@ class _ListPostsState extends State<ListPosts> {
                 },
               );
             }
-            break;
           default:
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -11,6 +11,6 @@ void main() {
         brightness: Brightness.light,
         primaryColor: Default.getcolorDefault,
         visualDensity: VisualDensity.adaptivePlatformDensity),
-    home: RootPage(),
+    home: const RootPage(),
   ));
 }
