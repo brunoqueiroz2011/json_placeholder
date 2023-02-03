@@ -30,11 +30,12 @@ class WebServiceAPI {
 
   Future<Post> createPost() async {
     var url = Uri.https(Default.urlBase, Default.pathPosts);
+    final now = DateTime.now();
 
     Post post = Post(
         userId: 1,
         id: 120,
-        title: "New Post Add!!!",
+        title: "New Post Add!!! - ${now.hour}",
         body: "laudantium enim quasi est quidem magnam voluptate");
 
     var body = jsonEncode(post.toJson());
@@ -57,8 +58,9 @@ class WebServiceAPI {
 
   Future<Post> updatingPost(Post post) async {
     var url = Uri.https(Default.urlBase, "${Default.pathPosts}/${post.id}");
+    final now = DateTime.now();
 
-    post.title = "Post Updating!!!";
+    post.title = "Post Updating!!!\n ${now}";
     post.body = "Conteudo todo atualizado com muito sucesso!!!";
 
     var body = jsonEncode(post.toJson());
@@ -83,8 +85,9 @@ class WebServiceAPI {
 
   Future<Post> patchingPost(Post post) async {
     var url = Uri.https(Default.urlBase, "${Default.pathPosts}/${post.id}");
+    final now = DateTime.now();
 
-    post.title = "Post Patching!!!";
+    post.title = "Post Patching!!!\n ${now}";
     post.body = "Conteudo Parcialmente atualizado com muito sucesso!!!";
 
     var body = jsonEncode(post.toJson());
@@ -109,12 +112,14 @@ class WebServiceAPI {
 
   Future<String> deletingPost(Post post) async {
     String result = "";
+    final now = DateTime.now();
+
     var url = Uri.https(Default.urlBase, "${Default.pathPosts}/${post.id}");
     http.Response response = await http.delete(url);
     if (response.statusCode == 200) {
-      result = "Deletado com Sucesso!!!";
+      result = "Deletado com Sucesso!!!\n ${now}";
     } else {
-      result = "Erro ao tentar atualizar!!!";
+      result = "Erro ao tentar atualizar!!! - ${now.hour}";
     }
     return result;
   }
